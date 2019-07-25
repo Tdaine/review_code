@@ -1,4 +1,5 @@
-import java.lang.reflect.Constructor;
+package MultiThread;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.Condition;
@@ -71,7 +72,7 @@ class Goods{
 
     @Override
     public String toString() {
-        return "Goods{" +
+        return "MultiThread.Goods{" +
                 "goodsName='" + goodsName + '\'' +
                 ", count=" + count +
                 '}';
