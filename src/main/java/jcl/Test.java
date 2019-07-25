@@ -1,8 +1,6 @@
 package jcl;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author abaka
@@ -32,22 +30,27 @@ class Person{
 
 public class Test {
     public static void main(String[] args) {
-        List<String> list = new ArrayList<String>();
-        list.add("hello");
-        list.add("bit");
-        list.add("java");
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()){
-            String str = iterator.next();
-            if (str.equals("bit")){
-                list.remove("bit");
-            }
-            System.out.println(str);
-        }
+//        List<String> list = new ArrayList<String>();
+//        list.add("hello");
+//        list.add("bit");
+//        list.add("java");
+//        Iterator<String> iterator = list.iterator();
+//        while (iterator.hasNext()){
+//            String str = iterator.next();
+//            if (str.equals("bit")){
+//                list.remove("bit");
+//            }
+//            System.out.println(str);
+//        }
 
 //        Person per1 = new Person(20,"zs");
 //        Person per2 = new Person(20,"zs");
 //        System.out.println(per1.equals(per2));
+        Set<String> set = new TreeSet<String>();
+        set.add("b");
+        set.add("a");
+        set.add("c");
+        System.out.println(set);
     }
 
 }
