@@ -7,9 +7,12 @@ import java.util.*;
  * @date 2019/8/5 18:31
  */
 public class LadderLength {
+    /**
+     * 单词接龙
+     */
     class Solution {
         private int BFS(String beginWord, String endWord, Set<String> wordList){
-            int num = 0;
+            int num = 1;
             Set<String> book = new HashSet<String>();
             book.add(beginWord);
             Queue<String> queue = new LinkedList<String>();
@@ -25,14 +28,14 @@ public class LadderLength {
                         for (char ch = 'a'; ch <= 'z'; ch++){
                             newWord[i] = ch;
                             //如果列表中没有此单词或者这个单词已经访问过了则跳过
-                            if (!wordList.contains(newWord.toString()) || book.contains(newWord.toString())){
+                            if (!wordList.contains(new String(newWord)) || book.contains(new String(newWord))){
                                 continue;
                             }
-                            if (newWord.equals(endWord))
-                                return num++;
+                            if (new String(newWord).equals(endWord))
+                                return ++num;
                             //如果还没有转换为endWord就加入队列
-                            ((LinkedList<String>) queue).addLast(newWord.toString());
-                            book.add(newWord.toString());
+                            ((LinkedList<String>) queue).addLast(new String(newWord));
+                            book.add(new String(newWord));
                         }
                     }
                 }
@@ -46,5 +49,19 @@ public class LadderLength {
             Set<String> set = new HashSet<String>(wordList);
             return BFS(beginWord,endWord,set);
         }
+    }
+
+    public static void main(String[] args) {
+        String beginWord = "hit";
+        String endWord = "cog";
+        List<String> wordList = new ArrayList<String>();
+        wordList.add("hot");
+        wordList.add("dot");
+        wordList.add("dog");
+        wordList.add("lot");
+        wordList.add("log");
+        wordList.add("cog");
+       int n =  new LadderLength().new Solution().ladderLength(beginWord,endWord,wordList);
+        System.out.println(n);
     }
 }
